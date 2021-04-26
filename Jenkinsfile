@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "http://172.16.0.12:30002/webku"
+    registry = "172.16.0.12:30002/webku"
     dockerImage = ""
   }
 
@@ -11,7 +11,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/hamdanzenith/mainjenkins.git', branch: 'main'
+        git url:'https://github.com/hamdanzenith/mainjenkins.git'
       }
     }
 
