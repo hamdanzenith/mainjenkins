@@ -5,13 +5,13 @@ pipeline {
     dockerImage = ""
   }
 
-  agent any
+  agent { label 'kubepod' }
 
   stages {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/hamdanzenith/mainjenkins.git'
+        git url:'https://github.com/hamdanzenith/mainjenkins.git', branch:'main'
       }
     }
 
