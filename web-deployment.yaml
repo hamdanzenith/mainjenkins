@@ -1,0 +1,40 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webku
+  name: webku
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webku
+  template:
+    metadata:
+      labels:
+        app: webku
+    spec:
+      containers:
+      - image: http://172.16.0.12:30002/webku
+        imagePullPolicy: Always
+        name: webku
+        ports:
+          - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: webku
+  name: webku
+spec:
+  ports:
+  - nodePort: 32223
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: webku
+  type: NodePort
