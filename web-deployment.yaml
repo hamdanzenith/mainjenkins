@@ -16,7 +16,7 @@ spec:
         app: webku
     spec:
       containers:
-      - image: http://172.16.0.12:30002/webku
+      - image: 172.16.0.12:30002/webku
         imagePullPolicy: Always
         name: webku
         ports:
